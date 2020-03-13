@@ -1,5 +1,11 @@
-<html>
-<body>
-    <h1>Hello :)</h1>
-</body>
-</html>
+{% extends 'loja/base.html' %}
+{% block content %}
+    {% for produto in produtos %}
+        <div class="produto p25">
+            <img src="{{ produto.imagem.url }}">
+            <h2>{{ produto.titulo }}</h2>
+            <h4>R${{ produto.valor }}</h4>
+            <a class="add">Adicionar ao Carrinho</a>
+        </div>
+    {% endfor %}
+{% endblock %}

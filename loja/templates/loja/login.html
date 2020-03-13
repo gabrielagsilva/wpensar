@@ -1,0 +1,8 @@
+{% extends 'loja/base.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Login</button>
+</form>
+{% endblock %}

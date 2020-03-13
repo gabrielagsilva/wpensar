@@ -1,0 +1,28 @@
+<html>
+    <title>Loja - Wpensar</title>
+    
+<body>
+    <div id="header" class="p100">
+        <div id="top-menu">
+            <a href="/">Início</a> • 
+            {% if request.user.is_authenticated %}
+                <span>Olá, {{user}}</span> • <a href="/logout">Sair</a>
+            {% else %}
+                <a href="/admin">Admin</a> • <a href="/cadastro">Cadastre-se</a> • <a href="/login">Login</a> 
+            {% endif %}
+        </div>
+        <div class="p90">
+            <h1>Loja</h1>
+        </div>
+    </div>
+    <div class="p90">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="footer" class="p100">
+        <div class="p90">
+            <span>Etapa de Teste - Vaga Desenvolvedor de Software Junior</span>
+        </div>
+    </div>
+</body>
+</html>
