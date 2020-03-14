@@ -5,7 +5,7 @@
             <img src="{{ produto.imagem.url }}">
             <h2>{{ produto.titulo }}</h2>
             <h4>R${{ produto.valor }}</h4>
-            <a class="add">Adicionar ao Carrinho</a>
+            <a href="{% url 'add_cart' produto.ID %}">Adicionar ao carrinho</a>
         </div>
     {% endfor %}
 {% endblock %}

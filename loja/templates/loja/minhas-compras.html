@@ -1,0 +1,25 @@
+{% extends 'loja/base.html' %}
+{% block content %}
+    {% for compra in compras %}
+        <h2>Compra #{{compra.ID}}</h2>
+        <table>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+            </tr>
+        {% for item in compra.produtos.all %}
+            <tr>
+                <td>{{item.produto.titulo}}</td>
+                <td>{{item.quantidade}}</td>
+                <td>{{item.valor}}</td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td><b>TOTAL</b></td>
+                <td></td>
+                <td>{{ compra.total }}</td>
+            </tr>
+        </table>
+    {% endfor %}
+{% endblock %}

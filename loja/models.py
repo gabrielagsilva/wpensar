@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 class Produto(models.Model):
     ID = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=200)
-    descricao = models.TextField()
-    em_estoque = models.IntegerField()
     valor = models.FloatField()
     imagem = models.ImageField(upload_to ='produtos', default=None, blank=True, null=True)
 
@@ -19,16 +17,18 @@ class Produto(models.Model):
 class Compra(models.Model):
     ID = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    produtos = models.ManyToManyField(Produto, through="Quantidade")
+    produtos = models.ManyToManyField('Item')
+    total = models.FloatField()
 
     def publish(self):
         self.save()
 
 
-class Quantidade(models.Model):
+class Item(models.Model):
+    ID = models.AutoField(primary_key=True)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    compra = models.ForeignKey(Compra, on_delete=models.CASCADE)
-    quantidade = models.IntegerField()
+    quantidade = models.IntegerField() 
+    valor = models.FloatField(default=0)
 
     def publish(self):
         self.save()

@@ -4,12 +4,14 @@
 <body>
     <div id="header" class="p100">
         <div id="top-menu">
-            <a href="/">Início</a> • 
-            {% if request.user.is_authenticated %}
-                <span>Olá, {{user}}</span> • <a href="/logout">Sair</a>
-            {% else %}
-                <a href="/admin">Admin</a> • <a href="/cadastro">Cadastre-se</a> • <a href="/login">Login</a> 
-            {% endif %}
+            <a href="/">Início</a> • <a href="/carrinho">Carrinho</a>
+            <div class="right">
+                {% if request.user.is_authenticated %}
+                    <span>Olá, {{user}}</span> • <a href="/minhas-compras">Minhas compras</a> • <a href="/logout">Sair</a>
+                {% else %}
+                    <a href="/admin">Admin</a> • <a href="/cadastro">Cadastre-se</a> • <a href="/login">Login</a>
+                {% endif %}
+            </div>
         </div>
         <div class="p90">
             <h1>Loja</h1>

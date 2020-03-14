@@ -1,0 +1,26 @@
+{% extends 'loja/base.html' %}
+{% block content %}
+    <table>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+        </tr>
+        {% for ID, produto in pedidos.items %} 
+            <tr>
+                <td>{{produto.titulo}}</td>
+                <td>
+                    <a class='remove' href="{% url 'remove_item' ID %}">-</a>
+                    {{produto.quantidade}}
+                    <a class='add' href="{% url 'add_cart' ID %}">+</a>
+                </td>
+                <td>{{produto.valor}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if total > 0 %}
+        <div class="total">
+            <b>Total a pagar: R${{total}}</b> <a class='finalizar' href="{% url 'finalizar' %}">Finalizar compra</a>
+        </div>
+    {% endif %}
+{% endblock %}
