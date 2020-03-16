@@ -1,5 +1,6 @@
 {% extends 'loja/base.html' %}
 {% block content %}
+<div id="compras">
     {% for compra in compras %}
         <h2>Compra #{{compra.ID}}</h2>
         <table>
@@ -12,14 +13,15 @@
             <tr>
                 <td>{{item.produto.titulo}}</td>
                 <td>{{item.quantidade}}</td>
-                <td>{{item.valor}}</td>
+                <td>{{item.valor|floatformat:2}}</td>
             </tr>
         {% endfor %}
             <tr>
                 <td><b>TOTAL</b></td>
                 <td></td>
-                <td>{{ compra.total }}</td>
+                <td><b>{{ compra.total|floatformat:2 }}</b></td>
             </tr>
         </table>
     {% endfor %}
+</div>
 {% endblock %}

@@ -11,5 +11,5 @@ urlpatterns = [
     path('minhas-compras', views.minhas_compras, name='minhas_compras'),
     path('remove/<ID>', views.remove_item, name='remove_item'),
     path('login', LoginView.as_view(template_name="loja/login.html", redirect_authenticated_user=True), name='login'),
-    path('logout', LogoutView.as_view(), name='logout'),
+    path('logout', LogoutView.as_view(),{'next_page': '/produtos'}, name='logout'),
 ]

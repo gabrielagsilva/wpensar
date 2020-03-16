@@ -25,7 +25,7 @@ SECRET_KEY = '6^ahab(7jej0t^11(-55%#^8lzb4gu&)kh%4o0wm+08vk(pdg^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gabeatles.pythonanywhere.com']
 
 
 # Application definition
@@ -120,6 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATICFILES_DIRS = ( os.path.join('static'), )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
@@ -127,3 +128,8 @@ MEDIA_URL = 'media/'
 LOGIN_REDIRECT_URL = '/'
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache" 
+
+LOGIN_URL = 'login' 
+
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'produtos'

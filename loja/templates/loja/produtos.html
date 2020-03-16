@@ -4,7 +4,7 @@
         <div class="produto p25">
             <img src="{{ produto.imagem.url }}">
             <h2>{{ produto.titulo }}</h2>
-            <h4>R${{ produto.valor }}</h4>
+            <h4>R${{ produto.valor|floatformat:2 }}</h4>
             <a href="{% url 'add_cart' produto.ID %}">Adicionar ao carrinho</a>
         </div>
     {% endfor %}

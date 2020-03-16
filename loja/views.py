@@ -79,6 +79,7 @@ def finalizar(request):
             compra.produtos.add(produto)
         compra.total = total
         compra.save()
+        del request.session['cart']
         return redirect('minhas_compras')
     else:
         return redirect('login')
